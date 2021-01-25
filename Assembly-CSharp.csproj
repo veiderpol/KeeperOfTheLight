@@ -59,25 +59,45 @@
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyPooler.cs" />
     <Compile Include="Assets\Scripts\Combat\Attack.cs" />
     <Compile Include="Assets\ScriptableObjects\SO_Character\AttackDefinition.cs" />
-    <Compile Include="Assets\Scripts\Inventory\InventoryEntry.cs" />
-    <Compile Include="Assets\Scripts\Combat\IAttackable.cs" />
-    <Compile Include="Assets\ScriptableObjects\Scripts\Items_SO.cs" />
-    <Compile Include="Assets\Scripts\Inventory\ItemManager.cs" />
-    <Compile Include="Assets\Scripts\Player\CharacterStats.cs" />
-    <Compile Include="Assets\Scripts\MouseInputManager.cs" />
-    <Compile Include="Assets\ScriptableObjects\Scripts\Character_SO.cs" />
-    <Compile Include="Assets\Scripts\Combat\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
-    <Compile Include="Assets\ScriptableObjects\SO_Enemy\Enemy_SO.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyPooler.cs" />
     <Compile Include="Assets\ScriptableObjects\SO_Towers\Towers_SO.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerStats.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryEntry.cs" />
+    <Compile Include="Assets\Scripts\Combat\IAttackable.cs" />
+    <Compile Include="Assets\ScriptableObjects\SO_Enemy\Enemy_SO.cs" />
+    <Compile Include="Assets\ScriptableObjects\Scripts\Items_SO.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerStats_Main.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemManager.cs" />
+    <Compile Include="Assets\Scripts\Player\CharacterStats.cs" />
+    <Compile Include="Assets\ScriptableObjects\Scripts\Character_SO.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -300,11 +320,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -761,17 +781,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{54FCF5D3-033E-F030-441B-FB20DD43237A}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{54F1EC14-2D96-3F47-0AFE-E91206D3BEE4}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{830B01F2-F884-8E78-EBB1-276124E2926B}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{54F1EC14-2D96-3F47-0AFE-E91206D3BEE4}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{54FCF5D3-033E-F030-441B-FB20DD43237A}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

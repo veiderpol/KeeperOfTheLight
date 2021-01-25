@@ -11,11 +11,16 @@ public class GameManager : Singleton<GameManager>
         RUNNING,
         PAUSED
     }
+    public GameObject uiWin;
     public EventGameState onGameStateChanged;
     public static Action onRunning;
+    public static Func<bool> onCountDeath;
+    public int deathCount = 0;
     GameState currentGameState = GameState.RUNNING;
     void Start()
     {
+        CharacterStats.onDeath = RestartGame;
+        onCountDeath = DeathCount;
         DontDestroyOnLoad(this);
     }
     public GameState CurrentGameState
@@ -35,6 +40,7 @@ public class GameManager : Singleton<GameManager>
     void OnLoadOperationComplete(AsyncOperation ao) 
     {
         ao = SceneManager.UnloadSceneAsync("Menu");
+
         UpdateState(GameState.RUNNING);
     }
     public void StartGame(string levelName) 
@@ -44,6 +50,17 @@ public class GameManager : Singleton<GameManager>
             return;
 
         ao.completed += OnLoadOperationComplete;
+    }
+    public void RestartGame() 
+    {
+        SceneManager.LoadScene("MainGame");
+        Time.timeScale = 1;
+    }
+    public bool DeathCount() 
+    {
+        deathCount++;
+        print(deathCount);
+        return deathCount >= 15;
     }
     [System.Serializable] public class EventGameState : UnityEvent<GameState, GameState> { }
 }

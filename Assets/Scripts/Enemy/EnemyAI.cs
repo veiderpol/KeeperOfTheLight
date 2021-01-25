@@ -30,9 +30,7 @@ public class EnemyAI : MonoBehaviour
     bool changeTower = true;
     float nextAttackTime = 0f;
     private void OnEnable()
-    {
-        
-        TowerStats.onTryUpdateTower = UpdateTower;
+    { 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -46,6 +44,7 @@ public class EnemyAI : MonoBehaviour
             this.speed = UnityEngine.Random.Range(150, 200);
             target = GameObject.FindGameObjectWithTag("Player");
         }
+        target = towersPosition[2].gameObject;
         InvokeRepeating("UpdatePath", 0f, 1f);
     }
     void UpdateTower() 
@@ -98,7 +97,8 @@ public class EnemyAI : MonoBehaviour
                     towerStats = target.GetComponentInChildren<TowerStats>();
                     changeTower = false;
                 }
-                if (distanceEnemyPlayer < 3f)
+                
+                if (distanceEnemyPlayer < 5f)
                 {
                     Attack();
                     nextAttackTime = Time.time + 0.7f;

@@ -14,6 +14,8 @@ public class EnemyStats : MonoBehaviour, IAttackable
     public Image fill;
     float health = 0;
     Animator anim;
+    GameObject uiWin;
+    public static Action onWin;
     private void OnEnable()
     {
         this.health = 100;
@@ -21,6 +23,7 @@ public class EnemyStats : MonoBehaviour, IAttackable
         sliderHB.value = health;
         fill.color = gradient.Evaluate(1f);
         this.anim = GetComponent<Animator>();
+        uiWin = GameObject.FindGameObjectWithTag("WinCanvas");
     }
     public void OnAttack(GameObject attacker, Attack attack)
     {
@@ -36,11 +39,14 @@ public class EnemyStats : MonoBehaviour, IAttackable
             StartCoroutine(HandleDeath());
         }
        
-        //Debug.LogFormat("{0} attacked {1} for {2} damage.", attacker.name, name, attack.Damage);
     }
     IEnumerator HandleDeath() {
         this.anim.SetTrigger("Death");
         yield return new WaitForSeconds(0.5f);
         this.gameObject.SetActive(false);
+        bool win =  GameManager.onCountDeath();
+        if (win)
+            onWin();
+
     }
 }

@@ -10,7 +10,6 @@ public class TowerStats_Main : MonoBehaviour, IAttackable
     public Gradient gradient;
     public Image fill;
 
-    // Start is called before the first frame update
     void Start()
     {
         EnemyAI.onTryAttackTower = OnAttack;
@@ -21,12 +20,6 @@ public class TowerStats_Main : MonoBehaviour, IAttackable
         sliderHB.maxValue = towerDef.health;
         sliderHB.value = towerDef.health;
         fill.color = gradient.Evaluate(1f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void OnAttack(GameObject attacker, Attack attack)
     {

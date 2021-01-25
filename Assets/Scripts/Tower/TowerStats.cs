@@ -11,10 +11,13 @@ public class TowerStats : MonoBehaviour, IAttackable
     public Image fill;
 
     public static Action onTryUpdateTower;
+    public static Action onTowerLose;
 
     void Start()
     {
         this.towerDef.health = 100;
+        this.towerDef.alive = true;
+        
         towerDef.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         sliderHB.maxValue = this.towerDef.health;
         sliderHB.value = this.towerDef.health;
@@ -22,8 +25,9 @@ public class TowerStats : MonoBehaviour, IAttackable
     }
     public void OnAttack(GameObject attacker, Attack attack)
     {
-        if (towerDef.health >= 0)
+        if (this.towerDef.health >= 0)
         {
+            print(attack.Damage);
             this.towerDef.ApplyDamage(attack.Damage);
             sliderHB.value = towerDef.health;
 
@@ -32,9 +36,11 @@ public class TowerStats : MonoBehaviour, IAttackable
         else
         {
             this.towerDef.OnTowerDestroy();
+            if (this.towerDef.spriteRenderer.name == "Main_House")
+                onTowerLose();
             this.enabled = false;
            // onTryUpdateTower();
         }
     }
-
+    
 }
