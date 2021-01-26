@@ -44,7 +44,6 @@ public class EnemyAI : MonoBehaviour
             this.speed = UnityEngine.Random.Range(150, 200);
             target = GameObject.FindGameObjectWithTag("Player");
         }
-        target = towersPosition[2].gameObject;
         InvokeRepeating("UpdatePath", 0f, 1f);
     }
     void UpdateTower() 
